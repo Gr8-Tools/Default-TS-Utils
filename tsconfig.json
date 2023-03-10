@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "declaration": true,
+    "outDir": "lib",
+
+    "noImplicitReturns": true,
+    "strict": true,
+    "esModuleInterop": true,
+
+    "strictPropertyInitialization": false
+  },
+  "compileOnSave": true,
+  "include": ["src/**/*"],
+  "exclude": [".secrets"]
+}
