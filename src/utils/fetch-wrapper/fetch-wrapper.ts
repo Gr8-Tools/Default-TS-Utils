@@ -140,6 +140,11 @@ export class FetchWrapper<T extends FetchWrapper<T>> {
         }
 
         const response = await fetch(url, requestInit);
-        return await response.json();
+        try {
+           return (response.size > 0) ? await response.json() : {};
+        } catch (er) {
+            console.log(er);
+            return {};
+        }
     }
 }
