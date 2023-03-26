@@ -1,4 +1,4 @@
-import { BodyInit } from 'node-fetch';
+import { BodyInit, Response } from 'node-fetch';
 export declare class FetchWrapper<T extends FetchWrapper<T>> {
     static CONTENT_TYPE_HEADER: string;
     protected readonly __url: string;
@@ -15,5 +15,5 @@ export declare class FetchWrapper<T extends FetchWrapper<T>> {
     setQueryParams(map: Map<string, string>): FetchWrapper<T>;
     setQueryParam(key: string, value: string): FetchWrapper<T>;
     clearQueryParam(...excludeKeys: string[]): FetchWrapper<T>;
-    sendRequest(method: string, body?: BodyInit | null): Promise<any>;
+    sendRequest(method: string, body?: BodyInit | null): Promise<Response>;
 }
