@@ -1,4 +1,4 @@
-import fetch, {BodyInit, RequestInit} from 'node-fetch'
+import fetch, {BodyInit, RequestInit, Response} from 'node-fetch'
 
 export class FetchWrapper<T extends FetchWrapper<T>> {
     static CONTENT_TYPE_HEADER : string = "Content-Type";
@@ -109,7 +109,7 @@ export class FetchWrapper<T extends FetchWrapper<T>> {
     /* Отправляет запрос по сформированным данным
     * @param method - тип запроса
     */
-    async sendRequest(method: string, body: BodyInit | null = null) : Promise<any> {
+    async sendRequest(method: string, body: BodyInit | null = null) : Promise<Response> {
         let url = this.__url + this.__urlExtend;
 
         const requestInit : RequestInit = {
@@ -139,12 +139,6 @@ export class FetchWrapper<T extends FetchWrapper<T>> {
             requestInit.body = body;
         }
 
-        const response = await fetch(url, requestInit);
-        try {
-           return (response.size > 0) ? await response.json() : {};
-        } catch (er) {
-            console.log(er);
-            return {};
-        }
+        return await fetch(url, requestInit);
     }
 }
