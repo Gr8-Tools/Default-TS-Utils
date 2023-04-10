@@ -1,6 +1,6 @@
 {
   "name": "@gr8-tools/default-ts-utils",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Default utillities, that can be reused inside every TS project",
   "main": "lib/index.js",
   "repository": {
