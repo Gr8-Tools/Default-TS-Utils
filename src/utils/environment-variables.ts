@@ -6,6 +6,9 @@ import {readFileSync} from "fs";
 
 export class EnvVar {
     static getCache() : EnvironmentCacheWrapper {
+        if (!Container.has("cache")) {
+            Container.set("cache", new NodeCache());
+        }
         const cache = Container.get<NodeCache>("cache");
         return new EnvironmentCacheWrapper(cache);
     }
